@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link href="css/bootstrap-modal.min.css" media="screen" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    body{
+	font-family: georgia;
+    }
+    h1{font-size: 72px;}
+    
+    </style>
+</head>
+<body>
+
+<h1>m3webware offers!!!</h1>
+
+  <div class="modal hide fade" id="m3webware">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h2>5% course fee cash back offer</h2>
+  </div>
+  <div class="modal-body">
+    <p>M3WebWare proudly announces a 5% cash back offer of the course fees on all flavours of NEBOSH courses (IGC , ITC and IFC) for successful candidates who score a DISTINCTION.</p>
+    <p>This offer is meant for candidates who on declaration of final result from NEBOSH score a distinction mark or above. Once the original mark lists are made available, M3WebWare would reimburse 5% as cash back to all deserving candidates who qualify.</p>
+    <p>...there's more... 2% course fee cash back for all successful candidates who score a CREDIT.</p>
+    <p>Offer valid for students enrolled across all GWG institutions in UAE & India...!!! </p>
+  </div>
+  <div class="modal-footer">
+	<a href="#" class="btn" id="m3close">Close</a>
+	<small>* Conditions apply</small>
+  </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/bootstrap-modal.min.js"></script>
+<script type="text/javascript">
+    $(window).load(function(){
+	if( $.cookie('m3offer') === null ) {
+	 var date = new Date();
+	 var minutes = 60;
+	 date.setTime(date.getTime() + (minutes * 60 * 1000));
+	 $.removeCookie('m3offer', { path: '/' });
+	 $.cookie("m3offer", "loaded", { expires: date, path: '/' });
+        $('#m3webware').modal('show');
+	
+	$("#m3close").click(function () {
+           $("#m3webware").modal("hide");
+         });
+	}
+    });
+</script>
+</body>
+</html>
